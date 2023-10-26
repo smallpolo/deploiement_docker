@@ -3,3 +3,11 @@
     - package:
         name: docker
         state: present
+
+    - name: "copier ghost dans docker"
+        ansible.builtin.copy:
+        src: docker pull ghost
+        dest: /var/www/html/ghost
+        owner: vagrant
+        group: vagrant
+        mode: '0644'
