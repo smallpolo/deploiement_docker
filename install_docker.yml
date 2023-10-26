@@ -5,7 +5,7 @@
         state: present
 
     - name: "copier ghost dans docker"
-        ansible.builtin.copy:
+      ansible.builtin.copy:
         src: docker pull ghost
         dest: /var/www/html/ghost
         owner: vagrant
