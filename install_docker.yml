@@ -4,9 +4,9 @@
         name: docker
         state: present
 
-   - name: Create a data container
-  docker_container:
-    name: mydata
-    image: ghost
-    volumes:
-      - /data
+      - name: Create a data container
+        docker_container:
+          name: mydata
+          image: ghost
+          volumes:
+            - /data
