@@ -1,0 +1,18 @@
+- hosts: all
+  tasks:
+    - name: On s'assure d'avoir les dépendances pour le module docker_container
+      block:
+        - package:
+            name: python3-setuptools
+        - pip:
+            name: docker
+            
+    - name: On s'assure d'avoir notre container
+      community.docker.docker_container:
+        name: my-ghost
+        image: ghost
+        ports:
+          - 3001:2368
+        env:
+          NODE_ENV: development
+          url: "http://{{ ansible_ssh_host }}:3001"
