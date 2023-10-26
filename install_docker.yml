@@ -4,10 +4,9 @@
         name: docker
         state: present
 
-    - name: "copier ghost dans docker"
-      ansible.builtin.copy:
-        src: docker pull ghost
-        dest: /var/www/html/ghost
-        owner: vagrant
-        group: vagrant
-        mode: '0644'
+   - name: Create a data container
+  docker_container:
+    name: mydata
+    image: ghost
+    volumes:
+      - /data
